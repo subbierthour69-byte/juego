@@ -124,6 +124,8 @@ body:not(.display) .display-only{display:none}
   <div class="ctrl host-only">
     <button class="btn" style="font-size:.75rem" onclick="readQuestion()">🔁 Volver a escuchar al Vítor</button>
     <label class="btn"><input type="checkbox" id="autoV" onchange="G.auto=this.checked;save()"> Auto</label>
+    <label class="btn"><input type="checkbox" id="askV" onchange="G.ask=this.checked;save()"> 🎯 Elegir equipo</label>
+    <span class="btn" style="cursor:default">Valor: <button class="chip" onclick="setMult(1)">×1</button> <button class="chip" onclick="setMult(2)">×2</button> <button class="chip" onclick="setMult(3)">×3</button></span>
     <button class="btn" style="color:var(--red)" onclick="strike()">❌ Incorrecta</button>
     <button class="btn" onclick="resetGame()">↺ Reiniciar</button>
     <button class="btn" onclick="prevQuestion()">◀ Anterior</button>
@@ -149,6 +151,10 @@ body:not(.display) .display-only{display:none}
   <div id="rank" style="display:grid;gap:10px;width:100%;justify-items:center"></div>
   <button class="btn host-only" onclick="showCover()">Volver al inicio</button>
 </div>
+
+<div class="modal host-only" id="pickModal"><div class="mbox" style="text-align:center">
+  <b id="pickT">¿A quién le das los puntos?</b><div class="arow" id="pickBtns" style="justify-content:center;margin:14px 0"></div>
+</div></div>
 
 <!-- MODAL AUDIOS -->
 <div class="modal host-only" id="audioModal"><div class="mbox">
@@ -368,7 +374,7 @@ async function removeAudio(k) { await idbOp('readwrite', st => st.delete(k)); de
 function testAudio(k) { if (k === 'x') return playSound('strike'); if (k === 'ok') return playSound('correct'); const s = audioSrc(k); if (!s) return toast('No hay audio aquí'); playVoice(s); }
 
 // ---------- Pantallas ----------
-const stealAmt = () => (questions[G.q] ? questions[G.q].answers.filter(a => a.revealed && a.by === G.active).reduce((t, a) => t + a.pts, 0) : 0);
+const stealAmt = () => (questions[G.q] ? questions[G.q].answers.filter(a => a.revealed && a.by === G.active).reduce((t, a) => t + (a.got ?? a.pts), 0) : 0);
 function teamsHTML() {
   const amt = stealAmt(), steal = G.strikes.every(Boolean) && amt > 0;
   return G.names.map((n, i) => `<div class="team ${i === G.active ? 'active' : ''}" onclick="setActive(${i})">
@@ -386,7 +392,7 @@ function renderGame() {
   $('pot').textContent = G.roundPts;
   document.querySelectorAll('.strike').forEach((b, i) => b.classList.toggle('on', G.strikes[i]));
   const qd = questions[G.q]; if (!qd) return;
-  $('round').textContent = `RONDA ${G.q + 1}`;
+  const m = mult(); $('round').innerHTML = `RONDA ${G.q + 1}` + (m > 1 ? ` <span style="color:var(--gr);text-shadow:0 0 18px var(--gr)">· ×${m} ${m === 2 ? 'DOBLE' : 'TRIPLE'}</span>` : '');
   $('qtext').textContent = qd.question;
   const key = G.q + JSON.stringify(qd.answers.map(a => a.text + a.pts)), b = $('board');
   if (key !== builtKey) {
@@ -436,16 +442,37 @@ function nextQuestion() {
   else toast('Última ronda: pulsa 🏁 Finalizar para ver resultados');
 }
 function prevQuestion() { if (G.q > 0) loadQuestion(G.q - 1); }
+const mult = (i = G.q) => (questions[i] && questions[i].mult) || (i === 0 ? 1 : i === 1 ? 2 : 3);
+function setMult(m) { questions[G.q].mult = m; commit(); }
+function credit(a, t) { a.by = t; G.scores[t] += a.got; G.roundPts += a.got; }
+function afterReveal() {
+  if (questions[G.q].answers.every(x => x.revealed)) setTimeout(() => { playSound('fanfare'); fx('confetti'); }, 600);
+}
 function toggleAnswer(i) {
   const a = questions[G.q].answers[i];
   if (!a.revealed) {
-    a.revealed = true; a.by = G.active; G.scores[G.active] += a.pts; G.roundPts += a.pts; playSound('correct');
-    if (questions[G.q].answers.every(x => x.revealed)) setTimeout(() => { playSound('fanfare'); fx('confetti'); }, 600);
+    a.revealed = true; a.got = a.pts * mult(); playSound('correct');
+    if (G.ask) { a.by = -1; commit(); openPick(i); return; }
+    credit(a, G.active); afterReveal();
   } else {
-    a.revealed = false; const t = a.by ?? G.active;
-    G.scores[t] = Math.max(0, G.scores[t] - a.pts); G.roundPts = Math.max(0, G.roundPts - a.pts);
+    a.revealed = false;
+    const t = a.by ?? G.active, g = a.got ?? a.pts;
+    if (t >= 0) { G.scores[t] = Math.max(0, G.scores[t] - g); G.roundPts = Math.max(0, G.roundPts - g); }
+    delete a.by; delete a.got;
   }
   commit();
+}
+function openPick(i) {
+  const a = questions[G.q].answers[i];
+  $('pickT').textContent = `¿A quién le das los ${a.got} puntos?`;
+  $('pickBtns').innerHTML = G.names.map((n, t) => `<button class="btn" style="font-size:1rem" onclick="pickTeam(${i},${t})">${esc(n)}</button>`).join('') + `<button class="btn" style="font-size:1rem" onclick="pickTeam(${i},-1)">Nadie</button>`;
+  $('pickModal').classList.add('open');
+}
+function pickTeam(i, t) {
+  $('pickModal').classList.remove('open');
+  const a = questions[G.q].answers[i];
+  if (t >= 0) credit(a, t); else a.by = -1;
+  afterReveal(); commit();
 }
 function strikeFx() {
   const all = G.strikes.every(Boolean);
@@ -467,7 +494,7 @@ function editScore(i) {
 function resetGame() {
   if (!confirm('¿Reiniciar puntos y respuestas reveladas?')) return;
   stopTimer(); G.scores = G.names.map(() => 0); G.active = 0; G.roundPts = 0; G.q = 0; G.strikes = [false, false, false]; G.fsel = []; G.frev = [];
-  questions.forEach(q => q.answers.forEach(a => { a.revealed = false; delete a.by; })); commit();
+  questions.forEach(q => q.answers.forEach(a => { a.revealed = false; delete a.by; delete a.got; })); commit();
 }
 function startTimer(s) {
   stopTimer(); G.timer = s; commit();
@@ -499,7 +526,7 @@ function renderMgr() {
   $('tabQ').style.background = tab === 'q' ? 'var(--or)' : ''; $('tabQ').style.color = tab === 'q' ? '#2a0f00' : '';
   $('tabF').style.background = tab === 'f' ? 'var(--or)' : ''; $('tabF').style.color = tab === 'f' ? '#2a0f00' : '';
   $('mlist').innerHTML = LIST().map((q, i) => `<div class="qitem"><div class="arow"><b>${i + 1}.</b>
-    <input type="text" style="flex:1" value="${esc(q.question)}" onchange="LIST()[${i}].question=this.value;save()"><button class="btn" onclick="delQ(${i})">🗑</button></div>
+    <input type="text" style="flex:1" value="${esc(q.question)}" onchange="LIST()[${i}].question=this.value;save()">${tab === 'q' ? `<select class="btn" title="Valor de los puntos" onchange="LIST()[${i}].mult=+this.value;save()">${[1, 2, 3].map(m => `<option value="${m}" ${mult(i) === m ? 'selected' : ''}>×${m}</option>`).join('')}</select>` : ''}<button class="btn" onclick="delQ(${i})">🗑</button></div>
     ${q.answers.map((a, j) => `<div class="arow"><input type="text" style="flex:1" value="${esc(a.text)}" onchange="LIST()[${i}].answers[${j}].text=this.value;save()">
       <input type="number" style="width:70px" value="${a.pts}" onchange="LIST()[${i}].answers[${j}].pts=+this.value||0;save()"><button class="btn" onclick="delA(${i},${j})">✕</button></div>`).join('')}
     <button class="btn" style="margin-top:6px" onclick="addA(${i})">+ Respuesta</button></div>`).join('');
@@ -530,7 +557,7 @@ function setList(a) { if (tab === 'q') questions = a; else fast = a; }
 // ---------- Inicio ----------
 $('nTeams').innerHTML = [2, 3, 4, 5, 6].map(n => `<option>${n}</option>`).join('');
 $('nTeams').value = G.names.length; teamInputs();
-$('autoV').checked = !!G.auto;
+$('autoV').checked = !!G.auto; $('askV').checked = !!G.ask;
 if (window.speechSynthesis) { speechSynthesis.onvoiceschanged = populateVoices; populateVoices(); }
 render();
 loadCustomAudio().then(() => { if ($('audioModal').classList.contains('open')) renderAudioList(); });
