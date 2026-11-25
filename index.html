@@ -3,13 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>100 Nutri-Kidz Dijeron - Halloween</title>
-<link href="https://fonts.googleapis.com/css2?family=Creepster&family=Nunito:wght@600;800;900&display=swap" rel="stylesheet">
+<title>100 Nutri-Kidz Dijeron</title>
+<link href="https://fonts.googleapis.com/css2?family=Creepster&family=Lilita+One&family=Mountains+of+Christmas:wght@700&family=Nunito:wght@600;800;900&display=swap" rel="stylesheet">
 <style>
-:root{--or:#ff7a00;--gr:#8dff3a;--bone:#f6efe0;--red:#ff2a2a;--title:'Creepster','Chiller','Jokerman','Impact',sans-serif;--body:'Nunito','Segoe UI',system-ui,sans-serif}
+:root{--bone:#f6efe0;--red:#ff2a2a;--body:'Nunito','Segoe UI',system-ui,sans-serif}
+html{--or:#ff7a00;--or2:#ff9a1f;--or3:#d95b00;--orl:#ffd08a;--ors:#7a3000;--ord:#5a1a00;--or4:#ffb347;--or5:#c94e00;--cream:#fff1c9;--ink:#2a0f00;--or-rgb:255,122,0;--gr:#8dff3a;--gr-rgb:141,255,58;--p1:#5b1fa0;--p2:#2a0f45;--p3:#3b1466;--p4:#1a0830;--pb1:#7a3fc0;--pb2:#6a2cb0;--pb3:#9a5be0;--pb4:#4a1a7a;--d1:#12051f;--d2:#1c0830;--d3:#0b0412;--d4:#0a0314;--d5:#14061f;--d-rgb:20,6,34;--bg-top:#5b1f99;--title:'Creepster','Chiller','Jokerman','Impact',sans-serif;--corner:"🕸️"}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:var(--body);color:var(--bone);min-height:100vh;overflow-x:hidden;background:radial-gradient(ellipse at 50% 115%,rgba(255,122,0,.35),transparent 55%),radial-gradient(ellipse at 50% -10%,#5b1f99 0%,#1c0830 45%,#0b0412 100%) fixed}
-body::before,body::after{content:"🕸️";position:fixed;top:-6px;font-size:7rem;opacity:.35;pointer-events:none;z-index:0}
+body{font-family:var(--body);color:var(--bone);min-height:100vh;overflow-x:hidden;background:radial-gradient(ellipse at 50% 115%,rgba(var(--or-rgb),.35),transparent 55%),radial-gradient(ellipse at 50% -10%,var(--bg-top) 0%,var(--d2) 45%,var(--d3) 100%) fixed}
+body::before,body::after{content:var(--corner);position:fixed;top:-6px;font-size:7rem;opacity:.35;pointer-events:none;z-index:0}
 body::before{left:-6px}body::after{right:-6px;transform:scaleX(-1)}
 .bats{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
 .bats span{position:absolute;left:0;font-size:2rem;opacity:.5;animation:fly 16s linear infinite}
@@ -18,41 +19,42 @@ body::before{left:-6px}body::after{right:-6px;transform:scaleX(-1)}
 button,select{font-family:inherit;cursor:pointer;color:inherit}
 .screen{display:none;position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:14px 16px 26px;flex-direction:column;align-items:center;gap:12px}
 .screen.active{display:flex}
-.btn{background:rgba(255,255,255,.08);border:1px solid rgba(255,122,0,.65);border-radius:10px;padding:7px 12px;font-weight:800;font-size:.8rem}
-.btn:hover{background:rgba(255,122,0,.28)}
-select.btn{background:#1c0830;max-width:170px}
-.btn-big{background:linear-gradient(#ff9a1f,#d95b00);border:3px solid #ffd08a;color:#2a0f00;font-family:var(--title);font-size:1.7rem;letter-spacing:2px;padding:8px 36px;border-radius:14px;box-shadow:0 5px 0 #7a3000,0 0 25px rgba(255,122,0,.5)}
+.btn{background:rgba(255,255,255,.08);border:1px solid rgba(var(--or-rgb),.65);border-radius:10px;padding:7px 12px;font-weight:800;font-size:.8rem}
+.btn:hover{background:rgba(var(--or-rgb),.28)}
+select.btn{background:var(--d2);max-width:170px}
+.btn-big{background:linear-gradient(var(--or2),var(--or3));border:3px solid var(--orl);color:var(--ink);font-family:var(--title);font-size:1.7rem;letter-spacing:2px;padding:8px 36px;border-radius:14px;box-shadow:0 5px 0 var(--ors),0 0 25px rgba(var(--or-rgb),.5)}
 .top,.ctrl{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;align-items:center;width:100%}
-.cover{text-align:center;margin-top:4vh;padding:28px 22px;border:4px solid var(--or);border-radius:24px;background:rgba(20,6,34,.82);box-shadow:0 0 0 4px #4a1a7a,0 0 60px rgba(255,122,0,.4);max-width:760px;width:100%}
-.cover h1{font-family:var(--title);font-weight:400;font-size:clamp(2.8rem,9vw,5.6rem);line-height:1;color:var(--or);text-shadow:0 4px 0 #5a1a00,0 0 30px rgba(255,122,0,.7);letter-spacing:3px;margin:8px 0}
-.tag{font-weight:900;letter-spacing:2px;color:var(--gr);text-shadow:0 0 10px rgba(141,255,58,.6)}
+.cover{text-align:center;margin-top:4vh;padding:28px 22px;border:4px solid var(--or);border-radius:24px;background:rgba(var(--d-rgb),.82);box-shadow:0 0 0 4px var(--pb4),0 0 60px rgba(var(--or-rgb),.4);max-width:760px;width:100%}
+.cover h1{font-family:var(--title);font-weight:400;font-size:clamp(2.8rem,9vw,5.6rem);line-height:1;color:var(--or);text-shadow:0 4px 0 var(--ord),0 0 30px rgba(var(--or-rgb),.7);letter-spacing:3px;margin:8px 0}
+.tag{font-weight:900;letter-spacing:2px;color:var(--gr);text-shadow:0 0 10px rgba(var(--gr-rgb),.6)}
 .sub2{opacity:.85;margin-bottom:8px}.author{margin-top:16px;font-size:.8rem;opacity:.7}
 .setup{display:grid;gap:8px;margin:12px auto 18px;max-width:420px}
-.team-input{background:#12051f;border:2px solid #6a2cb0;border-radius:10px;padding:9px;color:var(--bone);font-size:1rem;text-align:center;font-family:inherit}
+.team-input{background:var(--d1);border:2px solid var(--pb2);border-radius:10px;padding:9px;color:var(--bone);font-size:1rem;text-align:center;font-family:inherit}
 .teams{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;width:100%}
-.team{flex:1 1 140px;max-width:230px;background:linear-gradient(#3b1466,#1a0830);border:3px solid #7a3fc0;border-radius:16px;padding:8px 10px;text-align:center;cursor:pointer;transition:.2s}
-.team.active{border-color:var(--gr);box-shadow:0 0 22px rgba(141,255,58,.7);transform:translateY(-3px)}
+.team{flex:1 1 140px;max-width:230px;background:linear-gradient(var(--p3),var(--p4));border:3px solid var(--pb1);border-radius:16px;padding:8px 10px;text-align:center;cursor:pointer;transition:.2s}
+.team.active{border-color:var(--gr);box-shadow:0 0 22px rgba(var(--gr-rgb),.7);transform:translateY(-3px)}
 .t-turn{visibility:hidden;font-size:.7rem;font-weight:900;color:var(--gr)}.team.active .t-turn{visibility:visible}
 .t-name{font-weight:900;font-size:.95rem}
-.t-pts{font-family:var(--title);font-size:2.8rem;color:var(--or);text-shadow:0 0 14px rgba(255,122,0,.7);line-height:1.1}
+.t-pts{font-family:var(--title);font-size:2.8rem;color:var(--or);text-shadow:0 0 14px rgba(var(--or-rgb),.7);line-height:1.1}
 .t-act{display:flex;gap:4px;justify-content:center;margin-top:4px;flex-wrap:wrap}
-.pot{font-weight:800;font-size:.95rem;background:#1a0830;border:2px solid #6a2cb0;border-radius:20px;padding:4px 16px}
+.pot{font-weight:800;font-size:.95rem;background:var(--p4);border:2px solid var(--pb2);border-radius:20px;padding:4px 16px}
 .pot b{font-family:var(--title);color:var(--gr);font-size:1.5rem;margin-left:6px}
-.round{font-family:var(--title);font-size:clamp(2.2rem,5vw,3.2rem);color:var(--or);text-shadow:0 3px 0 #5a1a00,0 0 20px rgba(255,122,0,.6);letter-spacing:3px}
-.qcard{width:100%;text-align:center;font-weight:900;font-size:clamp(1.1rem,2.6vw,1.7rem);padding:16px 20px;border:3px solid var(--or);border-radius:16px;background:linear-gradient(#3b1466,#1a0830);box-shadow:0 0 24px rgba(255,122,0,.35)}
-.board{width:100%;display:grid;grid-auto-flow:column;grid-template-columns:repeat(2,1fr);gap:10px 14px;padding:14px;border:5px solid var(--or);border-radius:20px;background:#0a0314;box-shadow:0 0 0 3px #4a1a7a,0 0 40px rgba(255,122,0,.4),inset 0 0 30px #000}
+.round{font-family:var(--title);font-size:clamp(2.2rem,5vw,3.2rem);color:var(--or);text-shadow:0 3px 0 var(--ord),0 0 20px rgba(var(--or-rgb),.6);letter-spacing:3px}
+.qcard{width:100%;text-align:center;font-weight:900;font-size:clamp(1.1rem,2.6vw,1.7rem);padding:16px 20px;border:3px solid var(--or);border-radius:16px;background:linear-gradient(var(--p3),var(--p4));box-shadow:0 0 24px rgba(var(--or-rgb),.35)}
+.board{width:100%;display:grid;grid-auto-flow:column;grid-template-columns:repeat(2,1fr);gap:10px 14px;padding:14px;border:5px solid var(--or);border-radius:20px;background:var(--d4);box-shadow:0 0 0 3px var(--pb4),0 0 40px rgba(var(--or-rgb),.4),inset 0 0 30px #000}
 .slot{perspective:900px;height:68px}
 .slot-in{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .6s}
 .slot.rev .slot-in{transform:rotateX(180deg)}
 .face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:12px;display:flex;align-items:center;justify-content:space-between;padding:0 12px;gap:10px;font-weight:900;overflow:hidden}
-.front{background:linear-gradient(#5b1fa0,#2a0f45);border:2px solid #9a5be0;cursor:pointer}
+.front{background:linear-gradient(var(--p1),var(--p2));border:2px solid var(--pb3);cursor:pointer}
 body:not(.display) .front{border-style:dashed}
-.back{transform:rotateX(180deg);background:linear-gradient(#ffb347,#ff7a00 60%,#c94e00);border:2px solid #fff1c9;color:#2a0f00;text-transform:uppercase;letter-spacing:1px}
-.num{width:38px;height:38px;flex:none;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ffd08a,#ff7a00);color:#2a0f00;font-family:var(--title);font-size:1.4rem;display:flex;align-items:center;justify-content:center}
+.back{transform:rotateX(180deg);background:linear-gradient(var(--or4),var(--or) 60%,var(--or5));border:2px solid var(--cream);color:var(--ink);text-transform:uppercase;letter-spacing:1px}
+.num{width:38px;height:38px;flex:none;border-radius:50%;background:radial-gradient(circle at 35% 30%,var(--orl),var(--or));color:var(--ink);font-family:var(--title);font-size:1.4rem;display:flex;align-items:center;justify-content:center}
+.edit{display:grid;gap:6px;margin:8px auto 10px;max-width:520px;text-align:left}.edit label{font-weight:800;font-size:.8rem;opacity:.9}.edit textarea,.edit input{width:100%;background:var(--d1);border:2px solid var(--pb2);border-radius:10px;padding:8px;color:var(--bone);font-family:inherit;font-size:.95rem;text-align:center}.edit textarea{resize:none}.edit small{opacity:.6;font-size:.7rem;text-align:center}
 .hint,.atext{flex:1;line-height:1.1;overflow:hidden;font-size:1.05rem}
-.pts{flex:none;background:#0a0314;color:var(--gr);border-radius:8px;padding:2px 12px;font-family:var(--title);font-size:1.5rem;text-shadow:0 0 8px rgba(141,255,58,.8)}
-.strikes{display:flex;gap:6px;align-items:center;background:#1a0830;border:2px solid #6a2cb0;border-radius:12px;padding:6px 10px;font-size:.75rem;font-weight:800}
-.strike{width:44px;height:44px;border:3px solid #9a5be0;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;cursor:pointer;background:#12051f;color:#12051f}
+.pts{flex:none;background:var(--d4);color:var(--gr);border-radius:8px;padding:2px 12px;font-family:var(--title);font-size:1.5rem;text-shadow:0 0 8px rgba(var(--gr-rgb),.8)}
+.strikes{display:flex;gap:6px;align-items:center;background:var(--p4);border:2px solid var(--pb2);border-radius:12px;padding:6px 10px;font-size:.75rem;font-weight:800}
+.strike{width:44px;height:44px;border:3px solid var(--pb3);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;cursor:pointer;background:var(--d1);color:var(--d1)}
 .strike.on{background:var(--red);border-color:#fff;color:#fff;box-shadow:0 0 16px var(--red)}
 .timer{display:flex;gap:6px;align-items:center;font-weight:800;font-size:.85rem}
 .tnum{font-family:var(--title);font-size:2rem;background:#000;color:var(--red);border:2px solid #555;border-radius:8px;padding:0 14px;min-width:64px;text-align:center;text-shadow:0 0 10px var(--red)}
@@ -60,17 +62,17 @@ body:not(.display) .front{border-style:dashed}
 #xo .x{font-size:min(60vh,60vw);line-height:1;color:var(--red);font-weight:900;text-shadow:0 0 50px red;font-family:Arial,sans-serif;animation:pop .3s}
 #stealB{font-family:var(--title);font-size:3.2rem;color:var(--gr);text-shadow:0 0 20px var(--gr);display:none}
 @keyframes pop{from{transform:scale(.3)}to{transform:scale(1)}}
-.frow{display:grid;grid-template-columns:1.3fr 1.5fr 70px;gap:10px;align-items:center;width:100%;background:rgba(20,6,34,.85);border:2px solid #6a2cb0;border-radius:12px;padding:10px 14px}
-.fans{text-align:center;font-weight:900;font-size:1.2rem;background:linear-gradient(#5b1fa0,#2a0f45);border:2px solid #9a5be0;border-radius:8px;padding:6px;text-transform:uppercase}
+.frow{display:grid;grid-template-columns:1.3fr 1.5fr 70px;gap:10px;align-items:center;width:100%;background:rgba(var(--d-rgb),.85);border:2px solid var(--pb2);border-radius:12px;padding:10px 14px}
+.fans{text-align:center;font-weight:900;font-size:1.2rem;background:linear-gradient(var(--p1),var(--p2));border:2px solid var(--pb3);border-radius:8px;padding:6px;text-transform:uppercase}
 .fp{text-align:center}.fctl{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:6px}
 .chip{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:4px 12px;font-size:.8rem}
-.chip.on{background:var(--or);color:#2a0f00;font-weight:900}
-.rk{display:flex;align-items:center;gap:14px;width:100%;max-width:560px;background:linear-gradient(#3b1466,#1a0830);border:3px solid #7a3fc0;border-radius:14px;padding:10px 18px;font-weight:900;font-size:1.2rem}
-.rk.first{border-color:var(--or);box-shadow:0 0 30px rgba(255,122,0,.6);font-size:1.6rem}.rn{flex:1}
+.chip.on{background:var(--or);color:var(--ink);font-weight:900}
+.rk{display:flex;align-items:center;gap:14px;width:100%;max-width:560px;background:linear-gradient(var(--p3),var(--p4));border:3px solid var(--pb1);border-radius:14px;padding:10px 18px;font-weight:900;font-size:1.2rem}
+.rk.first{border-color:var(--or);box-shadow:0 0 30px rgba(var(--or-rgb),.6);font-size:1.6rem}.rn{flex:1}
 .modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:9000;align-items:center;justify-content:center}.modal.open{display:flex}
-.mbox{background:#14061f;border:3px solid var(--or);border-radius:16px;padding:18px;width:min(640px,95vw);max-height:88vh;overflow:auto}
-.mbox input[type=text],.mbox input[type=number]{background:#0b0412;border:1px solid #6a2cb0;border-radius:8px;color:var(--bone);padding:6px 8px;font-size:.9rem;font-family:inherit}
-.qitem{border:1px solid #4a1a7a;border-radius:10px;padding:10px;margin-bottom:10px}
+.mbox{background:var(--d5);border:3px solid var(--or);border-radius:16px;padding:18px;width:min(640px,95vw);max-height:88vh;overflow:auto}
+.mbox input[type=text],.mbox input[type=number]{background:var(--d3);border:1px solid var(--pb2);border-radius:8px;color:var(--bone);padding:6px 8px;font-size:.9rem;font-family:inherit}
+.qitem{border:1px solid var(--pb4);border-radius:10px;padding:10px;margin-bottom:10px}
 .arow{display:flex;gap:6px;margin-top:6px;align-items:center;flex-wrap:wrap}
 .arow-s{padding:8px 0;border-bottom:1px solid rgba(255,255,255,.1)}
 .display .host-only{display:none!important}
@@ -78,20 +80,37 @@ body:not(.display) .display-only{display:none}
 .display .slot,.display .strike,.display .team{pointer-events:none;cursor:default}
 .display .front{justify-content:center}
 @media(max-width:650px){.board{grid-auto-flow:row;grid-template-rows:none!important;grid-template-columns:1fr}.frow{grid-template-columns:1fr 60px}.frow .fq{grid-column:1/-1}}
+html[data-theme="halloween"]{--or:#ff7a00;--or2:#ff9a1f;--or3:#d95b00;--orl:#ffd08a;--ors:#7a3000;--ord:#5a1a00;--or4:#ffb347;--or5:#c94e00;--cream:#fff1c9;--ink:#2a0f00;--or-rgb:255,122,0;--gr:#8dff3a;--gr-rgb:141,255,58;--p1:#5b1fa0;--p2:#2a0f45;--p3:#3b1466;--p4:#1a0830;--pb1:#7a3fc0;--pb2:#6a2cb0;--pb3:#9a5be0;--pb4:#4a1a7a;--d1:#12051f;--d2:#1c0830;--d3:#0b0412;--d4:#0a0314;--d5:#14061f;--d-rgb:20,6,34;--bg-top:#5b1f99;--title:'Creepster','Chiller','Jokerman','Impact',sans-serif;--corner:"🕸️"}
+html[data-theme="muertos"]{--or:#ffa400;--or2:#ffbf2e;--or3:#d98200;--orl:#ffe08a;--ors:#6b3d00;--ord:#5a2f00;--or4:#ffcc4d;--or5:#c46f00;--cream:#fff4cf;--ink:#2b1500;--or-rgb:255,164,0;--gr:#ff4fa3;--gr-rgb:255,79,163;--p1:#6a1b6e;--p2:#32103a;--p3:#4a1650;--p4:#240a2b;--pb1:#c2409b;--pb2:#9d2f86;--pb3:#e063b8;--pb4:#701f63;--d1:#1d0720;--d2:#25092a;--d3:#10040f;--d4:#0d030c;--d5:#1a0620;--d-rgb:24,6,28;--bg-top:#7a2a7d;--title:'Creepster','Chiller','Jokerman','Impact',sans-serif;--corner:"🌼"}
+html[data-theme="navidad"]{--or:#ffc933;--or2:#ffd966;--or3:#d9a000;--orl:#fff0b0;--ors:#6b4a00;--ord:#4a3300;--or4:#ffe08a;--or5:#c78f00;--cream:#fffbe6;--ink:#2a1c00;--or-rgb:255,201,51;--gr:#ff5a5a;--gr-rgb:255,90,90;--p1:#1f7a45;--p2:#0d3b22;--p3:#17542f;--p4:#082a18;--pb1:#2fa062;--pb2:#25894f;--pb3:#6adb9a;--pb4:#16613a;--d1:#06210f;--d2:#082a18;--d3:#03140a;--d4:#031008;--d5:#05180c;--d-rgb:4,22,12;--bg-top:#1f7a45;--title:'Mountains of Christmas','Lilita One','Georgia',serif;--corner:"❄️"}
+html[data-theme="anionuevo"]{--or:#ffd23f;--or2:#ffe27a;--or3:#d9a800;--orl:#fff3b8;--ors:#5c4700;--ord:#3d3000;--or4:#ffe58a;--or5:#c79c00;--cream:#fffbe3;--ink:#1a1500;--or-rgb:255,210,63;--gr:#7fe7ff;--gr-rgb:127,231,255;--p1:#2a3f8f;--p2:#101a45;--p3:#1a2a6b;--p4:#0a1030;--pb1:#4d68c9;--pb2:#3d55b0;--pb3:#7f98ea;--pb4:#27397f;--d1:#080d26;--d2:#0c1236;--d3:#04071a;--d4:#03050f;--d5:#080c20;--d-rgb:8,12,36;--bg-top:#2a3f8f;--title:'Lilita One','Fredoka','Arial Rounded MT Bold','Impact',sans-serif;--corner:"✨"}
+html[data-theme="valentin"]{--or:#ff5c8a;--or2:#ff85a8;--or3:#d93a68;--orl:#ffc2d4;--ors:#6b1030;--ord:#5a0f26;--or4:#ff9ab8;--or5:#c42a56;--cream:#fff0f4;--ink:#3a0716;--or-rgb:255,92,138;--gr:#ffd1e0;--gr-rgb:255,209,224;--p1:#a8204f;--p2:#4a0e24;--p3:#6e1534;--p4:#34081a;--pb1:#e05585;--pb2:#c23a6c;--pb3:#f08aaf;--pb4:#7a1d3f;--d1:#2a0614;--d2:#34081a;--d3:#1a030c;--d4:#14020a;--d5:#240510;--d-rgb:30,5,16;--bg-top:#a8204f;--title:'Lilita One','Fredoka','Arial Rounded MT Bold','Impact',sans-serif;--corner:"💕"}
+html[data-theme="nino"]{--or:#ffd600;--or2:#ffe84d;--or3:#d9b300;--orl:#fff59a;--ors:#5c4d00;--ord:#4a3d00;--or4:#ffee70;--or5:#c9a800;--cream:#fffde0;--ink:#1d1700;--or-rgb:255,214,0;--gr:#4dffd2;--gr-rgb:77,255,210;--p1:#1e88e5;--p2:#0d3f7a;--p3:#1565c0;--p4:#082a52;--pb1:#4fb0ff;--pb2:#2f98f0;--pb3:#8ccfff;--pb4:#14639e;--d1:#06223f;--d2:#0a3160;--d3:#041a33;--d4:#03142a;--d5:#061d38;--d-rgb:6,29,56;--bg-top:#1e88e5;--title:'Lilita One','Fredoka','Arial Rounded MT Bold','Impact',sans-serif;--corner:"🎈"}
+html[data-theme="madre"]{--or:#ff8fc3;--or2:#ffadd5;--or3:#d9689d;--orl:#ffd6ea;--ors:#6b2547;--ord:#5a1a3a;--or4:#ffbddc;--or5:#c24d86;--cream:#fff0f8;--ink:#3a0f27;--or-rgb:255,143,195;--gr:#fff3a8;--gr-rgb:255,243,168;--p1:#9a3d8f;--p2:#40143d;--p3:#5e2257;--p4:#2e0b2c;--pb1:#d170c5;--pb2:#b857ac;--pb3:#e79bdd;--pb4:#6e2b66;--d1:#260a24;--d2:#30102e;--d3:#18061a;--d4:#12040f;--d5:#220a20;--d-rgb:28,8,26;--bg-top:#9a3d8f;--title:'Lilita One','Fredoka','Arial Rounded MT Bold','Impact',sans-serif;--corner:"🌷"}
+html[data-theme="padre"]{--or:#4dc3ff;--or2:#7dd3ff;--or3:#2a9ad9;--orl:#c2ebff;--ors:#0d3a5c;--ord:#0a2a44;--or4:#99dcff;--or5:#1d78ad;--cream:#effaff;--ink:#04202f;--or-rgb:77,195,255;--gr:#ffd54a;--gr-rgb:255,213,74;--p1:#2c5282;--p2:#13253f;--p3:#1d3a63;--p4:#0b1829;--pb1:#4a79b5;--pb2:#3a6399;--pb3:#7aa5d9;--pb4:#244a78;--d1:#091524;--d2:#0d1c33;--d3:#050d1a;--d4:#040a14;--d5:#0a1628;--d-rgb:9,20,40;--bg-top:#2c5282;--title:'Lilita One','Fredoka','Arial Rounded MT Bold','Impact',sans-serif;--corner:"⭐"}
+html[data-theme="patria"]{--or:#e11d2e;--or2:#ff4d5c;--or3:#a8101d;--orl:#ff9aa4;--ors:#5c0a12;--ord:#400609;--or4:#ff7a85;--or5:#8f0f1b;--cream:#ffe9ec;--ink:#ffffff;--or-rgb:225,29,46;--gr:#ffffff;--gr-rgb:255,255,255;--p1:#1b7a46;--p2:#0b3d22;--p3:#12532f;--p4:#072a17;--pb1:#2fa863;--pb2:#1f8f50;--pb3:#6bdc9f;--pb4:#145f38;--d1:#05200f;--d2:#08301a;--d3:#031509;--d4:#02100a;--d5:#04180d;--d-rgb:4,24,12;--bg-top:#1b7a46;--title:'Lilita One','Fredoka','Arial Rounded MT Bold','Impact',sans-serif;--corner:"🎊"}
+html[data-theme="general"]{--or:#ffb020;--or2:#ffc757;--or3:#d98a00;--orl:#ffe3a0;--ors:#6b4300;--ord:#4d3000;--or4:#ffd27a;--or5:#c47400;--cream:#fff6e0;--ink:#2a1a00;--or-rgb:255,176,32;--gr:#5cff9d;--gr-rgb:92,255,157;--p1:#3b5bdb;--p2:#17235c;--p3:#233486;--p4:#0e1536;--pb1:#6c86f0;--pb2:#4f6ae0;--pb3:#97aaf7;--pb4:#2c43a8;--d1:#0a1030;--d2:#0e1640;--d3:#050a22;--d4:#040716;--d5:#0b1230;--d-rgb:10,16,44;--bg-top:#3b5bdb;--title:'Lilita One','Fredoka','Arial Rounded MT Bold','Impact',sans-serif;--corner:"⭐"}
 </style>
 </head>
 <body>
-<div class="bats"><span style="top:10%">🦇</span><span style="top:32%;animation-delay:-6s;font-size:1.4rem">🦇</span><span style="top:58%;animation-delay:-11s">🦇</span></div>
-<div class="moon">🌕</div>
-<div id="xo"><div class="x">✖</div><div id="stealB">¡ROBO DE PUNTOS! 🦇</div></div>
+<div class="bats" id="bats"></div>
+<div class="moon" id="moon"></div>
+<div id="xo"><div class="x">✖</div><div id="stealB"></div></div>
 
 <!-- PORTADA -->
 <div class="screen active" id="s-cover">
   <div class="cover">
-    <div class="tag">🎃 EDICIÓN HALLOWEEN 👻</div>
-    <h1>100 Nutri-Kidz<br>Dijeron</h1>
-    <div class="sub2">Aprende sobre hábitos saludables ¡sin miedo!</div>
+    <div class="tag" id="cvTag"></div>
+    <h1 id="cvTitle"></h1>
+    <div class="sub2" id="cvSub"></div>
     <div class="host-only">
+      <div class="edit">
+        <label>🎨 Temática / día festivo <select id="themeSel" class="btn" style="max-width:100%;width:100%;margin-top:4px" onchange="setTheme(this.value)"></select></label>
+        <label>✏️ Título del juego <textarea id="edTitle" rows="2" oninput="setText('title',this.value)"></textarea></label>
+        <label>🏷️ Etiqueta superior <input id="edTag" oninput="setText('tag',this.value)"></label>
+        <label>💬 Subtítulo <input id="edSub" oninput="setText('sub',this.value)"></label>
+        <small>Enter = salto de línea en el título · Campo vacío = texto predeterminado del tema</small>
+      </div>
       <div style="font-weight:800">¿Cuántos equipos? <select id="nTeams" class="btn" onchange="teamInputs()"></select></div>
       <div class="setup" id="teamInputs"></div>
       <button class="btn-big" onclick="startGame()">Comenzar</button>
@@ -112,7 +131,7 @@ body:not(.display) .display-only{display:none}
     <button class="btn" onclick="showEnd()">🏁 Finalizar</button>
   </div>
   <div class="teams" id="teams"></div>
-  <div class="pot">🎃 Puntos en la ronda: <b id="pot">0</b></div>
+  <div class="pot"><span class="ic-pot"></span> Puntos en la ronda: <b id="pot">0</b></div>
   <div class="round" id="round"></div>
   <div class="qcard" id="qtext"></div>
   <div class="board" id="board"></div>
@@ -243,9 +262,60 @@ const defaultFast = [
   mk('Un juego o deporte para moverse', [['Fútbol',40],['Correr',25],['Saltar la cuerda',20],['Natación',15]])
 ];
 const DEF = ['Equipo 1 🎃', 'Equipo 2 👻', 'Equipo 3 🦇', 'Equipo 4 🕷️', 'Equipo 5 🧙', 'Equipo 6 🧟'];
+// ---------- Temáticas ----------
+const THEMES = {
+  halloween: { n: '🎃 Halloween', tag: '🎃 EDICIÓN HALLOWEEN 👻', sub: 'Aprende sobre hábitos saludables ¡sin miedo!', fly: '🦇', moon: '🌕', ic: '🎃', steal: '¡ROBO DE PUNTOS! 🦇', teams: ['🎃','👻','🦇','🕷️','🧙','🧟'], conf: ['#ff7a00','#8dff3a','#a855f7','#ffd08a','#fff'] },
+  muertos: { n: '💀 Día de Muertos', tag: '💀 DÍA DE MUERTOS 🌼', sub: 'Aprende sobre hábitos saludables ¡con mucho sabor!', fly: '🦋', moon: '💀', ic: '🌼', steal: '¡ROBO DE PUNTOS! 💀', teams: ['💀','🌼','🕯️','🦋','🎭','🍞'], conf: ['#ffa400','#ff4fa3','#a855f7','#ffe08a','#fff'] },
+  navidad: { n: '🎄 Navidad', tag: '🎄 EDICIÓN NAVIDEÑA 🎅', sub: 'Aprende sobre hábitos saludables ¡y diviértete!', fly: '❄️', moon: '⛄', ic: '🎄', steal: '¡ROBO DE PUNTOS! 🎅', teams: ['🎄','🎅','⛄','🦌','🎁','⭐'], conf: ['#ffc933','#ff5a5a','#6adb9a','#fff','#ffe08a'] },
+  anionuevo: { n: '🎆 Año Nuevo', tag: '🎆 ¡FELIZ AÑO NUEVO! 🥂', sub: 'Aprende sobre hábitos saludables ¡y empieza el año con todo!', fly: '✨', moon: '🥂', ic: '🎆', steal: '¡ROBO DE PUNTOS! ✨', teams: ['🎆','🥂','✨','🎇','🎊','🕛'], conf: ['#ffd23f','#7fe7ff','#fff','#7f98ea','#ffe58a'] },
+  valentin: { n: '💕 San Valentín / Amor y Amistad', tag: '💕 AMOR Y AMISTAD 💌', sub: 'Aprende sobre hábitos saludables ¡con mucho cariño!', fly: '💗', moon: '💘', ic: '💕', steal: '¡ROBO DE PUNTOS! 💘', teams: ['💕','💌','🌹','💘','🧸','🍫'], conf: ['#ff5c8a','#ffd1e0','#fff','#ff9ab8','#ffc2d4'] },
+  nino: { n: '🎈 Día del Niño (30 de abril)', tag: '🎈 ¡FELIZ DÍA DEL NIÑO! 🎉', sub: 'Aprende sobre hábitos saludables ¡jugando!', fly: '🎈', moon: '🧸', ic: '🎈', steal: '¡ROBO DE PUNTOS! 🎈', teams: ['🎈','🧸','🚀','🦄','🎨','⚽'], conf: ['#ffd600','#4dffd2','#ff5c8a','#4fb0ff','#fff'] },
+  madre: { n: '🌷 Día de las Madres (10 de mayo)', tag: '🌷 ¡FELIZ DÍA DE LAS MADRES! 💐', sub: 'Aprende sobre hábitos saludables ¡para toda la familia!', fly: '🌸', moon: '💐', ic: '🌷', steal: '¡ROBO DE PUNTOS! 🌸', teams: ['🌷','💐','🌸','🦋','💖','🌻'], conf: ['#ff8fc3','#fff3a8','#d170c5','#ffd6ea','#fff'] },
+  padre: { n: '⭐ Día del Padre', tag: '⭐ ¡FELIZ DÍA DEL PADRE! 👔', sub: 'Aprende sobre hábitos saludables ¡para toda la familia!', fly: '⭐', moon: '🏆', ic: '⭐', steal: '¡ROBO DE PUNTOS! ⭐', teams: ['⭐','🏆','⚽','🛠️','🚗','🎣'], conf: ['#4dc3ff','#ffd54a','#7aa5d9','#c2ebff','#fff'] },
+  patria: { n: '🎊 Fiestas Patrias (16 de septiembre)', tag: '🎊 ¡VIVA MÉXICO! 🌮', sub: 'Aprende sobre hábitos saludables ¡con sabor mexicano!', fly: '🎊', moon: '🦅', ic: '🌮', steal: '¡ROBO DE PUNTOS! 🎊', teams: ['🌮','🦅','🎺','🌶️','🎊','🥁'], conf: ['#e11d2e','#2fa863','#fff','#6bdc9f','#ff9aa4'] },
+  general: { n: '⭐ General (sin fiesta)', tag: '⭐ ¡A JUGAR! ⭐', sub: 'Aprende sobre hábitos saludables ¡y diviértete!', fly: '⭐', moon: '🏅', ic: '⭐', steal: '¡ROBO DE PUNTOS! ⭐', teams: ['⭐','🚀','🏅','🎯','💡','🔥'], conf: ['#ffb020','#5cff9d','#97aaf7','#ffe3a0','#fff'] }
+};
+const DEF_TITLE = '100 Nutri-Kidz\nDijeron';
+const TH = () => THEMES[G.theme] || THEMES.halloween;
+const defNames = k => (THEMES[k] || THEMES.halloween).teams.map((e, i) => 'Equipo ' + (i + 1) + ' ' + e);
+function applyTheme() {
+  const t = TH();
+  document.documentElement.dataset.theme = THEMES[G.theme] ? G.theme : 'halloween';
+  const title = (G.title || '').trim() ? G.title : DEF_TITLE;
+  $('cvTitle').innerHTML = esc(title).replace(/\n/g, '<br>');
+  $('cvTag').textContent = (G.tag || '').trim() ? G.tag : t.tag;
+  $('cvSub').textContent = (G.sub || '').trim() ? G.sub : t.sub;
+  document.title = title.replace(/\n/g, ' ');
+  $('moon').textContent = t.moon;
+  const key = G.theme + t.fly;
+  if ($('bats').dataset.k !== key) {
+    $('bats').dataset.k = key;
+    $('bats').innerHTML = `<span style="top:10%">${t.fly}</span><span style="top:32%;animation-delay:-6s;font-size:1.4rem">${t.fly}</span><span style="top:58%;animation-delay:-11s">${t.fly}</span>`;
+  }
+  $('stealB').textContent = t.steal;
+  document.querySelectorAll('.ic-pot').forEach(e => { e.textContent = t.ic; });
+}
+function setTheme(k) {
+  const old = defNames(G.theme);
+  G.theme = k;
+  const nw = defNames(k);
+  G.names = G.names.map((n, i) => n === old[i] ? nw[i] : n);
+  document.querySelectorAll('.team-input').forEach((el, i) => { if (el.value === old[i]) el.value = nw[i]; });
+  $('edTag').placeholder = TH().tag; $('edSub').placeholder = TH().sub;
+  applyTheme(); save();
+}
+function setText(f, v) { G[f] = v; applyTheme(); save(); }
+function initThemeUI() {
+  $('themeSel').innerHTML = Object.entries(THEMES).map(([k, t]) => `<option value="${k}">${t.n}</option>`).join('');
+  $('themeSel').value = THEMES[G.theme] ? G.theme : 'halloween';
+  $('edTitle').value = G.title == null ? DEF_TITLE : G.title;
+  $('edTag').value = G.tag || ''; $('edTag').placeholder = TH().tag;
+  $('edSub').value = G.sub || ''; $('edSub').placeholder = TH().sub;
+}
+
 
 let questions = [], fast = [], tab = 'q', timerI = null, builtKey = '', voiceAudio = null;
-let G = { names: [DEF[0], DEF[1]], scores: [0, 0], active: 0, roundPts: 0, q: 0, strikes: [false, false, false], screen: 'cover', timer: 15, fsel: [], frev: [], auto: true, voice: '' };
+let G = { names: [DEF[0], DEF[1]], scores: [0, 0], active: 0, roundPts: 0, q: 0, strikes: [false, false, false], screen: 'cover', timer: 15, fsel: [], frev: [], auto: true, voice: '', theme: 'halloween', title: null, tag: null, sub: null };
 
 function load() {
   try {
@@ -278,7 +348,7 @@ function confetti() {
   const c = document.createElement('canvas');
   c.style.cssText = 'position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:9999';
   c.width = innerWidth; c.height = innerHeight; document.body.appendChild(c);
-  const x = c.getContext('2d'), cols = ['#ff7a00', '#8dff3a', '#a855f7', '#ffd08a', '#fff'];
+  const x = c.getContext('2d'), cols = TH().conf;
   const ps = Array.from({ length: 110 }, () => ({ x: c.width / 2, y: c.height * 0.6, vx: (Math.random() - 0.5) * 26, vy: -(Math.random() * 14 + 6), r: Math.random() * 6 + 4, c: cols[Math.random() * 5 | 0], a: Math.random() * 6 }));
   let t = 0;
   (function f() {
@@ -378,10 +448,11 @@ const stealAmt = () => (questions[G.q] ? questions[G.q].answers.filter(a => a.re
 function teamsHTML() {
   const amt = stealAmt(), steal = G.strikes.every(Boolean) && amt > 0;
   return G.names.map((n, i) => `<div class="team ${i === G.active ? 'active' : ''}" onclick="setActive(${i})">
-    <div class="t-turn">🎃 TURNO</div><div class="t-name">${esc(n)}</div><div class="t-pts">${G.scores[i]}</div>
-    <div class="t-act host-only"><button class="btn" onclick="event.stopPropagation();editScore(${i})">✏️</button>${steal && i !== G.active ? `<button class="btn" style="border-color:var(--gr)" onclick="event.stopPropagation();stealTo(${i})">🦇 Robar ${amt}</button>` : ''}</div></div>`).join('');
+    <div class="t-turn">${TH().ic} TURNO</div><div class="t-name">${esc(n)}</div><div class="t-pts">${G.scores[i]}</div>
+    <div class="t-act host-only"><button class="btn" onclick="event.stopPropagation();editScore(${i})">✏️</button>${steal && i !== G.active ? `<button class="btn" style="border-color:var(--gr)" onclick="event.stopPropagation();stealTo(${i})">${TH().fly} Robar ${amt}</button>` : ''}</div></div>`).join('');
 }
 function render() {
+  applyTheme();
   const ids = { cover: 's-cover', game: 's-game', fast: 's-fast', end: 's-end' };
   document.querySelectorAll('.screen').forEach(s => s.classList.toggle('active', s.id === ids[G.screen]));
   document.querySelectorAll('.tnum').forEach(e => { e.textContent = G.timer; });
@@ -424,10 +495,10 @@ function renderEnd() {
 // ---------- Acciones ----------
 function teamInputs() {
   const n = +$('nTeams').value, old = [...document.querySelectorAll('.team-input')].map(i => i.value);
-  $('teamInputs').innerHTML = Array.from({ length: n }, (_, i) => `<input class="team-input" value="${esc(old[i] || G.names[i] || DEF[i])}">`).join('');
+  $('teamInputs').innerHTML = Array.from({ length: n }, (_, i) => `<input class="team-input" value="${esc(old[i] || G.names[i] || defNames(G.theme)[i])}">`).join('');
 }
 function startGame() {
-  G.names = [...document.querySelectorAll('.team-input')].map((i, k) => i.value.trim() || DEF[k]);
+  G.names = [...document.querySelectorAll('.team-input')].map((i, k) => i.value.trim() || defNames(G.theme)[k]);
   G.scores = G.names.map((_, i) => G.scores[i] || 0);
   if (G.active >= G.names.length) G.active = 0;
   G.screen = 'game'; playSound('fanfare'); commit();
@@ -556,7 +627,7 @@ function setList(a) { if (tab === 'q') questions = a; else fast = a; }
 
 // ---------- Inicio ----------
 $('nTeams').innerHTML = [2, 3, 4, 5, 6].map(n => `<option>${n}</option>`).join('');
-$('nTeams').value = G.names.length; teamInputs();
+$('nTeams').value = G.names.length; teamInputs(); initThemeUI();
 $('autoV').checked = !!G.auto; $('askV').checked = !!G.ask;
 if (window.speechSynthesis) { speechSynthesis.onvoiceschanged = populateVoices; populateVoices(); }
 render();
